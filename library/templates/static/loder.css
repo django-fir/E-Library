@@ -1,0 +1,106 @@
+#loder {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@-webkit-keyframes book-bounce {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes book-bounce {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes shelf-lift {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  20% {
+    transform: translateY(-4px) rotate(10deg);
+  }
+  40% {
+    transform: translateY(-4px) rotate(0);
+  }
+  40% {
+    transform: translateY(-4px) rotate(-10deg);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes shelf-lift {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  20% {
+    transform: translateY(-4px) rotate(10deg);
+  }
+  40% {
+    transform: translateY(-4px) rotate(0);
+  }
+  40% {
+    transform: translateY(-4px) rotate(-10deg);
+  }
+  80% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.book-shelf {
+  cursor: pointer;
+}
+.book-shelf .book-shelf__book {
+  -webkit-animation: book-bounce 0.7s ease infinite;
+  animation: book-bounce 0.7s ease infinite;
+  /* -webkit-animation-iteration-count: 1; */
+  /* animation-iteration-count: 1; */
+}
+.book-shelf .book-shelf__book--two {
+  -webkit-animation-delay: 0.04s;
+  animation-delay: 0.04s;
+}
+.book-shelf .book-shelf__book--three {
+  -webkit-animation-delay: 0.08s;
+  animation-delay: 0.08s;
+}
+.book-shelf .book-shelf__shelf {
+  -webkit-animation: shelf-lift 0.7s ease infinite;
+  animation: shelf-lift 0.7s ease infinite;
+  /* -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1; */
+  transform-origin: 50% 50%;
+}

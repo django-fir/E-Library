@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block bookd %}
+<main id="main">
+ <!-- ======= Cource Details Section ======= -->
+ <section id="course-details" class="course-details">
+  <div class="container" data-aos="fade-up">
+
+   <div class="row">
+    <div class="col-lg-8">
+     <img src={{book.book_image}} style="width: 60%;" class="img-fluid" alt="">
+     <h3>{{book.Book_Title}}</h3>
+     <p>
+      {{book.description}}
+     </p>
+    </div>
+    <div class="col-lg-4">
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>Author</h5>
+      <p><a href="#">{{book.Binding_Id.Author}}</a></p>
+     </div>
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>Publications</h5>
+      <p><a href="#">{{book.Binding_Id.Binding_Name|truncatewords:2}}</a></p>
+     </div>
+     
+
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>Price</h5>
+      <p>₹ {{book.price}}</p>
+     </div>
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>No of Pages</h5>
+      <p>{{book.no_pages}}</p>
+     </div>
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>Version</h5>
+      <p>{{book.version}}</p>
+     </div>
+
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>Available books</h5>
+      <p>{{book.No_Of_Copies_Current}}</p>
+     </div>
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>ISBN10</h5>
+      <p>{{book.Isbn10}}</p>
+     </div>
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>ISBN13</h5>
+      <p>{{book.Isbn13}}</p>
+     </div>        
+
+     
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>Publication Year</h5>
+      <p>{{book.Publication_year}}</p>
+     </div>
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>Language</h5>
+      <p>{{book.Language}}</p>
+     </div>
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>Category_Type</h5>
+      <p>{% for i in book.Category_Type.all %}
+       {{i.Category_Name}}        
+      {% endfor %}</p>
+     </div>
+     <div class="course-info d-flex justify-content-between align-items-center">
+      <h5>Rating</h5>
+      <p>{{book.rating}}</p>
+     </div>
+
+     {% if book in boorw.Book_ID.all %}
+    <div class="course-info d-flex justify-content-between align-items-center">
+      <a href="/cart/?deletecart={{book.id}}""><button class=" btn btn-danger">Remove From <i class="bi bi-cart-dash"></i>
+      </button></a>
+    </div>
+    {% else %}
+    <div class="course-info d-flex justify-content-between align-items-center">
+      <a href="/cart/?addtocart={{book.id}}"><button class="btn btn-primary">Add To Cart <i class="bi bi-cart-plus"></i></button></a>
+    </div>       
+     {% endif %}
+    <div class="course-info d-flex justify-content-between align-items-center">
+      <a href="/book/embend/{{book.id}}"><button class=" btn btn-warning">Preview<i class="bi bi-open-book"></i>
+        </button></a>
+    </div>
+
+
+    
+    
+    
+
+    </div>    
+   </div>
+
+  </div>
+ </section> 
+
+</main><!-- End #main -->
+  
+{% endblock bookd %}

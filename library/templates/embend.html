@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block embend %}
+  
+<main id="main">
+ <section id="course-details" class="course-details" style="padding: 0; margin: 0; height: 100vh;">
+ 
+  <div class="container" data-aos="fade-up" style="padding: 0;margin: 0 auto;">
+<script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
+<script type="text/javascript">
+
+ google.books.load();
+
+ function initialize() {
+  var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+  viewer.load('ISBN:{{emb}}');
+ }
+
+ google.books.setOnLoadCallback(initialize);
+</script>
+
+
+ <div class="embed-responsive embed-responsive-16by9">
+  <div class="embed-responsive-item" id="viewerCanvas" style="height: 100vh; width: 100%;top: 0;left: 0;margin: 0;" allowfullscreen></div>
+  </div>
+
+
+
+   <script>
+     document.body.classList.add("toggle-sidebar")
+
+    function colap() {
+     let goo = document.querySelectorAll('table')
+     goo.forEach((e) => { e.innerHTML = "" })
+     console.log('done')
+    }
+    
+    setTimeout(colap, 5000)
+   </script>
+  </div>
+ </section>
+</main>
+
+{% endblock embend %}

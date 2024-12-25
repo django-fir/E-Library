@@ -1,0 +1,426 @@
+{% extends "base.html" %}
+{% load static %}
+{% block profile %}
+
+
+<main id="main" class="main">
+
+<div class="section-title">
+  <h2>Profile</h2>
+  <p>Where You Meet Yourself</p>
+</div>
+
+ <section class="section profile">
+  <div class="row">
+
+   <div class="col-xl-4">
+    {% if not pr %}
+
+
+    <div class="card">
+     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+      <img src="{{user.student_image.url}}" alt="Profile" class="rounded-circle">
+      
+      <h2>{{user.student.username}}</h2>
+    <marquee behavior="" direction="">{{user.College_Name.name}}</marquee>
+      <div class="social-links mt-2">
+       <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+       <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+       <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+       <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+     </div>
+    </div>
+      
+    {% endif %}
+    {% if pr %}
+      
+    
+    <div class="card">
+      <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+    
+        <img src="{{usere.student_image.url}}" alt="Profile" class="rounded-circle">
+    
+        <h2>{{usere.student.username}}</h2>
+        <marquee behavior="" direction="">{{usere.College_Name.name}}</marquee>
+        <div class="social-links mt-2">
+          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+   </div>
+
+   {% if not pr %}
+     
+   <div class="col-xl-8">
+
+    <div class="card">
+     <div class="card-body pt-3">
+      <!-- Bordered Tabs -->
+      <ul class="nav nav-tabs nav-tabs-bordered">
+
+       <li class="nav-item">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+       </li>
+
+  
+
+       <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+       </li>
+
+       <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+       </li>
+
+       <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+       </li>
+
+      </ul>
+      <div class="tab-content pt-2">
+
+       <div class="tab-pane fade show active profile-overview" id="profile-overview">        
+
+        <h5 class="card-title">Profile Details</h5>
+
+        <div class="row">
+         <div class="col-lg-3 col-md-4 label ">Full Name</div>
+         <div class="col-lg-9 col-md-8">{{user.student.get_full_name}}
+         </div>
+        </div>
+
+        <div class="row">
+         <div class="col-lg-3 col-md-4 label">College_Name</div>
+         <div class="col-lg-9 col-md-8">{{user.College_Name.name}}</div>
+        </div>
+
+        <div class="row">
+         <div class="col-lg-3 col-md-4 label">USN</div>
+         <div class="col-lg-9 col-md-8">{{user.Student_Usn}}</div>
+        </div>
+
+        <div class="row">
+         <div class="col-lg-3 col-md-4 label">Departement</div>
+         <div class="col-lg-9 col-md-8">{{user.Department}}</div>
+        </div>
+
+        <div class="row">
+         <div class="col-lg-3 col-md-4 label">DateOfBirth</div>
+         <div class="col-lg-9 col-md-8">{{user.Date_Of_Birth}}</div>
+        </div>
+
+        <div class="row">
+         <div class="col-lg-3 col-md-4 label">Phone</div>
+         <div class="col-lg-9 col-md-8">{{user.Contact_Number}}</div>
+        </div>
+
+        <div class="row">
+         <div class="col-lg-3 col-md-4 label">Email</div>
+         <div class="col-lg-9 col-md-8">{{user.student.email}}</div>
+        </div>
+
+        {% if user.student.is_staff %}
+        <div class="row">
+          <div class="col-lg-3 col-md-4 label">Staff</div>
+          <div class="col-lg-9 col-md-8">
+          <input class="form-check-input" type="checkbox" name="" id="" checked disabled></div>
+        </div>          
+        {% endif %}
+        
+
+       </div>
+      {% endif %}
+
+       {% if pr %}
+      <div class="col-xl-8">
+      
+        <div class="card">
+          <div class="card-body pt-3">
+            <!-- Bordered Tabs -->
+            <ul class="nav nav-tabs nav-tabs-bordered">
+      
+              <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+              </li>
+              {% if not pr %}
+      
+      
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+              </li>
+      
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+              </li>
+      
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change
+                  Password</button>
+              </li>
+              {% endif %}
+      
+            </ul>
+            <div class="tab-content pt-2">
+      
+              <div class="tab-pane fade show active profile-overview" id="profile-overview">
+      
+                <h5 class="card-title">Profile Details</h5>
+      
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                  <div class="col-lg-9 col-md-8">{{usere.student.get_full_name}}</div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">College_Name</div>
+                  <div class="col-lg-9 col-md-8">{{usere.College_Name.name}}</div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">USN</div>
+                  <div class="col-lg-9 col-md-8">{{usere.Student_Usn}}</div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Departement</div>
+                  <div class="col-lg-9 col-md-8">{{usere.Department}}</div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">DateOfBirth</div>
+                  <div class="col-lg-9 col-md-8">{{usere.Date_Of_Birth}}</div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Phone</div>
+                  <div class="col-lg-9 col-md-8">{{usere.Contact_Number}}</div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Email</div>
+                  <div class="col-lg-9 col-md-8">{{usere.student.email}}</div>
+                </div>
+      
+                {% if usere.student.is_staff %}
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label">Staff</div>
+                  <div class="col-lg-9 col-md-8">
+                    <input class="form-check-input" type="checkbox" name="" id="" checked disabled>
+                  </div>
+                </div>
+                {% endif %}
+      
+      
+              </div>
+         
+       {% endif %}
+         
+      {% if not pr %}
+
+       <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+        
+
+        <!-- Profile Edit Form -->
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+         <div class="row mb-3">
+          <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+          <div class="col-md-8 col-lg-9">
+           <img src="{{user.student_image.url}}" alt="Profile" id="profilelogo">
+           <div class="pt-2">
+            <label id="profilelabel"  for="student_image"><a class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a></label>
+            {{formp.student_image}}            
+           </div>
+          </div>
+         </div>
+        
+
+         <div class="row mb-3 form-group">
+          <label for="company" class="col-md-4 col-lg-3 col-form-label">{{formp.College_Name.label}}</label>
+          <div class="col-md-8 col-lg-9 form-group">
+           {{formp.College_Name}}
+          </div>
+         </div>
+
+         <div class="row mb-3">
+          <label for="Job" class="col-md-4 col-lg-3 col-form-label">{{formp.Student_Usn.label}}</label>
+          <div class="col-md-8 col-lg-9">
+                      {{formp.Student_Usn}}
+          </div>
+         </div>
+
+         <div class="row mb-3">
+          <label for="Country" class="col-md-4 col-lg-3 col-form-label">{{formp.Department.label}}</label>
+          <div class="col-md-8 col-lg-9">
+           {{formp.Department}}
+          </div>
+         </div>
+
+         <div class="row mb-3">
+          <label for="Address" class="col-md-4 col-lg-3 col-form-label">{{formp.Date_Of_Birth.label}}</label>
+          <div class="col-md-8 col-lg-9  input-with-post-icon datepicker" id="date-picker-example">
+          {{formp.Date_Of_Birth}}      
+          </div>
+         </div>
+
+         <div class="row mb-3">
+          <label for="Phone" class="col-md-4 col-lg-3 col-form-label">{{formp.Contact_Number.label}}</label>
+          <div class="col-md-8 col-lg-9">
+          {{formp.Contact_Number}}
+          </div>
+         </div>
+              <div class="row mb-3">
+                <label for="Email" class="col-md-4 col-lg-3 col-form-label">UserName</label>
+                <div class="col-md-8 col-lg-9">
+                  <input name="user" type="text" class="form-control" id="user" placeholder="{{user.student.username}}" disabled>
+                </div>
+              </div>
+
+            <div class="row mb-3">
+              <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+              <div class="col-md-8 col-lg-9">
+              <input name="email" type="email"
+                class="form-control" id="Email" placeholder="{{user.student.email}}" disabled >
+              </div>
+            </div>
+                  
+
+          <div class="text-center">
+            <button name="profilechange" type="submit" class="btn btn-primary">Save Changes</button>
+          </div>
+      </form><!-- End Profile Edit Form -->
+      
+
+       </div>
+       <script>
+        function load(event){
+          const output = document.getElementById("profilelogo");
+          output.src=URL.createObjectURL(event.target.files[0]);
+          output.onload = function () {
+            URL.revokeObjectURL(output.src); 
+          }
+        }
+      </script>
+
+       <div class="tab-pane fade pt-3" id="profile-settings">
+
+        <!-- Settings Form -->
+        <form>
+
+         <div class="row mb-3">
+          <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
+          <div class="col-md-8 col-lg-9">
+           <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="changesMade" checked>
+            <label class="form-check-label" for="changesMade">
+             Changes made to your account
+            </label>
+           </div>
+           <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="newProducts" checked>
+            <label class="form-check-label" for="newProducts">
+             Information on new products and services
+            </label>
+           </div>
+           <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="proOffers">
+            <label class="form-check-label" for="proOffers">
+             Marketing and promo offers
+            </label>
+           </div>
+           <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled>
+            <label class="form-check-label" for="securityNotify">
+             Security alerts
+            </label>
+           </div>
+          </div>
+         </div>
+
+         <div class="text-center">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+         </div>
+      </form><!-- End settings Form -->
+
+       </div>
+
+       <div class="tab-pane fade pt-3" id="profile-change-password">
+        <!-- Change Password Form -->
+        <form method="post" id="Password">
+          {% csrf_token %}         
+
+         <div class="row mb-3">
+          <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">{{formpp.old_password.label|striptags}}</label>
+          <div class="col-md-8 col-lg-9">
+          {{formpp.old_password}}    
+          {% if formpp.old_password.errors %}
+          <div class="invalid-feedback" style="display: block;">{{formpp.old_password.errors|striptags}}</div>
+          {% endif %}
+          
+          
+          </div>         
+          
+          </div>
+
+         <div class="row mb-3">
+          <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+          <div class="col-md-8 col-lg-9">
+          {{formpp.new_password1}}
+          {% if formpp.new_password1.errors %}
+          <div class="invalid-feedback" style="display: block;">{{formpp.new_password1.errors|striptags}}</div>
+          {% endif %}
+                   </div>
+          
+          
+          
+         </div>
+
+         <div class="row mb-3">
+          <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+          <div class="col-md-8 col-lg-9">
+           {{formpp.new_password2}}    
+          {% if formpp.new_password2.errors %}
+          <div class="invalid-feedback" style="display: block;">{{formpp.new_password2.errors|striptags}}</div>
+          {% endif %}
+          
+          </div>          
+         </div>
+
+         <div class="text-center">
+          <button name="renewpasswordsubmit" type="submit" class="btn btn-primary">Change Password</button>
+         </div>
+        </form><!-- End Change Password Form -->
+
+       </div>
+
+
+
+      </div><!-- End Bordered Tabs -->
+      {% endif %}
+      {% if pr %}
+     </div>
+              
+      {% endif %}
+    
+
+
+
+
+     </div>
+    </div>
+
+   </div>
+  </div>
+ </section>
+
+</main><!-- End #main -->
+  
+{% endblock profile %}

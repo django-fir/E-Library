@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+ {% load static %}
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+ {% if user %}
+ <center>
+  {% if messages %}
+  {% for mes in messages %}    
+  <div {% if mes.tags %} class="messages alert alert-{{mes.tags}} alert-dismissible fade show" {% endif %} role="alert">
+   <i class="bi bi-check-circle me-1"></i>
+   {{mes}}
+   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  <div class="alert alert-info"><a href="{% url 'login' %}" class="link">Click Hear to Login</a></div>
+ {% endif %} 
+ </center>   
+ {% else %}
+<center>
+ U R Not Auth 
+</center>
+{% endif %}
+
+</body>
+</html>
+
+git remote add origin https://github.com/GovardhanSNReddy/Django.git
+git branch -M maingit push -u origin main
+git push -u origin main

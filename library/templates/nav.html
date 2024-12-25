@@ -1,0 +1,342 @@
+{% load static %}
+{% block navbar %}
+
+<header id="header" class="header fixed-top d-flex align-items-center animated zoomIn">
+
+ <div class=" d-flex align-items-center justify-content-between">
+  <a href="{% url 'home' %}" class="logo d-flex align-items-center">
+    
+   <img class="animated heartBeat delay-5s infinite" src="{% static 'assets copy/img/open-book-pages-logo/111_Readbook.jpg' %}" alt="">
+   <span class="d-none d-lg-block">E - Lib</span>
+  </a>
+  <i class="bi bi-list toggle-sidebar-btn animated " id="bi-list"></i>
+ </div><!-- End Logo -->
+
+ 
+
+ <div class="search-bar">  
+  <div s id="autocomplete" class="autocomplete">
+    <input style="padding-left: 50px;" class="autocomplete-input" name="query" placeholder="Type to Search"/>
+    <ul class="autocomplete-result-list myul"></ul>
+  </div>
+   
+ </div><!-- End Search Bar -->
+ 
+
+ <nav class="header-nav ms-auto">
+  <ul class="d-flex align-items-center">
+
+   <li class="nav-item d-block d-lg-none">
+    <a class="nav-link nav-icon search-bar-toggle " href="#">
+     <i class="bi bi-search"></i>
+    </a>
+   </li><!-- End Search Icon-->
+
+   <li class="nav-item dropdown">
+
+    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+     <i class="bi bi-bell"></i>
+     <span class="badge bg-primary badge-number">4</span>
+    </a><!-- End Notification Icon -->
+
+    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+     <li class="dropdown-header">
+      You have 4 new notifications
+      <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+     </li>
+     <li>
+      <hr class="dropdown-divider">
+     </li>
+
+     <li class="notification-item">
+      <i class="bi bi-exclamation-circle text-warning"></i>
+      <div>
+       <h4>Lorem Ipsum</h4>
+       <p>Quae dolorem earum veritatis oditseno</p>
+       <p>30 min. ago</p>
+      </div>
+     </li>
+
+     <li>
+      <hr class="dropdown-divider">
+     </li>
+
+     <li class="notification-item">
+      <i class="bi bi-x-circle text-danger"></i>
+      <div>
+       <h4>Atque rerum nesciunt</h4>
+       <p>Quae dolorem earum veritatis oditseno</p>
+       <p>1 hr. ago</p>
+      </div>
+     </li>
+
+     <li>
+      <hr class="dropdown-divider">
+     </li>
+
+     <li class="notification-item">
+      <i class="bi bi-check-circle text-success"></i>
+      <div>
+       <h4>Sit rerum fuga</h4>
+       <p>Quae dolorem earum veritatis oditseno</p>
+       <p>2 hrs. ago</p>
+      </div>
+     </li>
+
+     <li>
+      <hr class="dropdown-divider">
+     </li>
+
+     <li class="notification-item">
+      <i class="bi bi-info-circle text-primary"></i>
+      <div>
+       <h4>Dicta reprehenderit</h4>
+       <p>Quae dolorem earum veritatis oditseno</p>
+       <p>4 hrs. ago</p>
+      </div>
+     </li>
+
+     <li>
+      <hr class="dropdown-divider">
+     </li>
+     <li class="dropdown-footer">
+      <a href="#">Show all notifications</a>
+     </li>
+
+    </ul><!-- End Notification Dropdown Items -->
+
+   </li><!-- End Notification Nav -->
+
+   <li class="nav-item dropdown">
+
+    <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+     <i class="bi bi-cart-check"></i>
+     <span class="badge bg-success badge-number">{{countb}}</span>
+    </a><!-- End Messages Icon -->
+
+    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages" style="overflow-y: scroll;height: 80vh;">
+     <li class="dropdown-header">
+      You have {{countb}} new books in cart
+      <a href="{% url 'cart' %}"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+     </li>
+     <li>
+      <hr class="dropdown-divider">
+     </li>
+     
+        
+      
+     
+       
+{% for i in boorw.Book_ID.all %}
+  
+     <li class="message-item" style="position: relative;">
+      <a href="/books/?searchdbook={{i.id}}" style="color: #4F4F4F;">
+      <div class="card mb-3 mb-lg-0">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-ites-center">
+              <div>
+                <img src="{{i.book_image}}"
+                  class="img-fluid rounded-2" alt="Shopping item" style="width: 65px;">
+              </div>
+              <div class="ms-3">
+                <h5>{{i.Book_Title|truncatewords:3}}</h5>
+                <p class="small mb-0">₹ {{i.price}}</p>
+              </div>
+            </div>
+            <div class="d-flex flex-row align-items-center " >          
+              
+              <a href="/cart/?deletecart={{i.id}}" ><i class="fas fa-trash-alt text-danger"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>       
+       </a>
+     </li>  
+    <li style="margin-top: 5px;">
+      <hr class="dropdown-divider">
+    </li>
+{% endfor %}   
+
+
+
+
+     <li class="dropdown-footer">
+      <a href="{% url 'cart' %}">Show all Items</a>
+     </li>
+
+    </ul><!-- End Messages Dropdown Items -->
+
+   </li><!-- End Messages Nav -->
+
+   <li class="nav-item dropdown pe-3">
+
+    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+     <img src="{{user.student_image.url}}" alt="Profile" class="rounded-circle">
+     <span class="d-none d-md-block dropdown-toggle ps-2">{{user.student.username|truncatewords:3}}</span>
+    </a><!-- End Profile Iamge Icon -->
+
+    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+     <li class="dropdown-header">
+      <h6>{{user.student.username}}</h6>
+      <span>{{user.College_Name.name|truncatewords:3}}</span>
+     </li>
+     <li>
+      <hr class="dropdown-divider">
+     </li>
+
+     <li>
+      <a class="dropdown-item d-flex align-items-center" href="{% url 'profile' %}">
+       <i class="bi bi-person"></i>
+       <span>My Profile</span>
+      </a>
+     </li>
+     <li>
+      <hr class="dropdown-divider">
+     </li>
+
+     <li>
+      <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+       <i class="bi bi-gear"></i>
+       <span>Account Settings</span>
+      </a>
+     </li>
+     <li>
+      <hr class="dropdown-divider">
+     </li>
+
+     <li>
+      <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+       <i class="bi bi-question-circle"></i>
+       <span>Need Help?</span>
+      </a>
+     </li>
+     <li>
+      <hr class="dropdown-divider">
+     </li>
+
+     <li>
+      <a class="dropdown-item d-flex align-items-center" href="{% url 'logout' %}">
+       <i class="bi bi-box-arrow-right"></i>
+       <span>Log Out</span>
+      </a>
+     </li>
+
+    </ul><!-- End Profile Dropdown Items -->
+   </li><!-- End Profile Nav -->
+
+  </ul>
+ </nav><!-- End Icons Navigation -->
+
+</header><!-- End Header -->
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar animated">
+
+ <ul class="sidebar-nav" id="sidebar-nav">
+
+  <li class="nav-item click">
+   <a class="nav-link collapsed " href="{% url 'home'  %}">
+    <i class="bx bx-home"></i>
+    <span>Home</span>
+   </a>
+  </li><!-- End Home Nav -->
+
+  <li class="nav-item click">
+   <a class="nav-link collapsed" href="{% url 'book'  %}">
+    <i class="bx bx-book"></i>
+    <span>Books</span>
+   </a>
+  </li><!-- End Home Nav -->
+  <li class="nav-item">
+   <a class="nav-link collapsed" href="/#about">
+    <i class="bx bx-qr"></i>
+    <span>About</span>
+   </a>
+  </li><!-- End Home Nav -->
+  <li class="nav-item click">
+   <a class="nav-link collapsed" href="/#why-us">
+    <i class="bx bx-calendar-edit"></i>
+    <span>Why-Us?</span>
+   </a>
+  </li><!-- End Home Nav -->
+  <li class="nav-item click">
+   <a class="nav-link collapsed" href="/#pricing">
+    <i class="bx bx-rupee"></i>
+    <span>Pricing</span>
+   </a>
+  </li>
+  <li class="nav-item click">
+   <a class="nav-link collapsed" href="/#trainers">
+    <i class="bx bi bi-people"></i>
+    <span>Our-Staf</span>
+   </a>
+  </li>
+  <li class="nav-item click">
+   <a class="nav-link collapsed" href="/#testimonials">
+    <i class="bx bx-happy-heart-eyes"></i>
+    <span>Testimonials</span>
+   </a>
+  </li><!-- End Home Nav -->
+  <script>
+   nav = document.querySelectorAll(".nav-link .bx")
+   navcl = document.querySelectorAll(".click")   
+   for (let i = 0; i < nav.length; i++) {
+    if (document.body.clientWidth < 1100) {
+     navcl[i].addEventListener("click", () => { document.body.classList.toggle("toggle-sidebar") })
+    }
+   }
+
+  </script>
+
+  <li class="nav-heading">Pages</li>
+
+
+  <li class="nav-item">
+   <a class="nav-link collapsed" href="pages-faq.html">
+    <i class="bi bi-question-circle"></i>
+    <span>F.A.Q</span>
+   </a>
+  </li><!-- End F.A.Q Page Nav -->
+
+  <li class="nav-item">
+   <a class="nav-link collapsed" href="{% url 'contact' %}">
+    <i class="bi bi-envelope"></i>
+    <span >Contact</span>
+   </a>
+  </li><!-- End Contact Page Nav -->
+
+  <!-- <li class="nav-item">
+         <a class="nav-link collapsed" href="pages-register.html">
+           <i class="bi bi-card-list"></i>
+           <span>Register</span>
+         </a>
+       </li>End Register Page Nav -->
+
+  <!-- <li class="nav-item">
+         <a class="nav-link collapsed" href="pages-login.html">
+           <i class="bi bi-box-arrow-in-right"></i>
+           <span>Login</span>
+         </a>
+       </li>End Login Page Nav -->
+
+  <!-- <li class="nav-item">
+         <a class="nav-link collapsed" href="pages-error-404.html">
+           <i class="bi bi-dash-circle"></i>
+           <span>Error 404</span>
+         </a>
+       </li>End Error 404 Page Nav -->
+
+  <!-- <li class="nav-item">
+         <a class="nav-link collapsed" href="pages-blank.html">
+           <i class="bi bi-file-earmark"></i>
+           <span>Blank</span>
+         </a>
+       </li>End Blank Page Nav -->
+
+ </ul>
+ 
+ 
+</aside><!-- End Sidebar-->
+  
+{% endblock navbar %}

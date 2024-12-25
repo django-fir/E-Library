@@ -1,0 +1,462 @@
+{% load static %}
+{% block main %}
+ <main id="main" class="main">
+  <style>
+   #text {
+  border-right: solid white 4px;
+  height: 35px;
+}
+  </style>
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex justify-content-center align-items-center">
+   <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+    <h1>Learning Today,<br>Leading Tomorrow</h1>
+    <h2 id="text">We are team of talented bevelopers making websites Of Libraryes</h2>
+    <a href="{% url 'book' %}" class="btn-get-started">Get Started</a>
+   </div>
+  </section><!-- End Hero -->
+  <section id="about" class="about">
+   <div class="section-title">
+    <h2>About</h2>
+    <p>About Us</p>
+   </div>
+   <div class="container row-2" data-aos="fade-up">
+ 
+    <div class="row">
+     <div class="overflow-hidden col-lg-6 order-1 order-lg-1 img-bx" data-aos="fade-left" data-aos-delay="100">
+      <img src="{% static 'assets copy\img\pix/pexels-alana-sousa-3409497.jpg' %}" class="img-fluid show-once" alt="">
+     </div>
+     <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+      <h3>Too, we modestly welcome every one of the merchants around the nation to band together with us.</h3>
+      <p class="fst-italic">
+       We offer a tremendous gathering of books in the various classifications of Fiction, Non-fiction, Biographies, History,
+       Religions, Self – Help, Children. We likewise move in immense accumulation of Investments and Management, Computers,
+       Engineering, Medical, College and School content references books proposed by various foundations as schedule the nation
+       over. Other than this, we likewise offer an expansive gathering of E-Books at reasonable valuing.
+      </p>
+      <ul>
+       <li><i class="bi bi-check-circle"></i>we are arranged to give energizing offers and charming limits on our books.</li>
+       <li><i class="bi bi-check-circle"></i>You can keep in touch with us for any new musings at “email-id” helping us to ad-lib for the peruser fulfillment.</li>
+       <li><i class="bi bi-check-circle"></i>We will without a doubt give you the stage to many shimmering areas and develop the “Organization Name” family.
+       </li>
+      </ul>
+      <p>
+       We might want to thank you for shopping with us.
+      </p>
+ 
+     </div>
+    </div>
+ 
+ 
+   </div>
+ 
+ 
+ 
+  </section><!-- End About Section -->
+  <section id="counts" class="counts section-bg">
+   <div class="section-title">
+    <h2>Books</h2>
+    <p>Count Of Books</p>
+   </div>
+   <div class="container">
+ 
+    <div class="row counters">
+ 
+     <div class="col-lg-3 col-6 text-center">
+      <span data-purecounter-start="0" data-purecounter-end="{{count.books}}" data-purecounter-duration="1"
+       class="purecounter"></span>
+      <p>Books</p>
+     </div>
+ 
+     <div class="col-lg-3 col-6 text-center">
+      <span data-purecounter-start="0" data-purecounter-end="{{count.students}}" data-purecounter-duration="1"
+       class="purecounter"></span>
+      <p>Students</p>
+     </div>
+ 
+     <div class="col-lg-3 col-6 text-center">
+      <span data-purecounter-start="0" data-purecounter-end="{{count.staf}}" data-purecounter-duration="1"
+       class="purecounter"></span>
+      <p>Staff</p>
+     </div>
+ 
+     <div class="col-lg-3 col-6 text-center">
+      <span data-purecounter-start="0" data-purecounter-end="{{count.lib}}" data-purecounter-duration="1"
+       class="purecounter"></span>
+      <p>Libraryes</p>
+     </div>
+ 
+    </div>
+ 
+   </div>
+  </section><!-- End Counts Section -->
+  <section id="popular-courses" class="courses">
+   <div class="container" data-aos="fade-up">
+ 
+    <div class="section-title">
+     <h2>Books</h2>
+     <p>Popular Books</p>
+    </div>
+ 
+    <div class="row" data-aos="zoom-in" data-aos-delay="100">
+ 
+     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+      <div class="course-item">
+       <img src="{% static 'assets copy/img/pix/pexels-dayan-rodio-4132936.jpg' %}" class="img-fluid" alt="...">
+       <div class="course-content">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+         <h4>Web Development</h4>
+         <p class="price">$169</p>
+        </div>
+ 
+        <h3><a href="/search/?onlyisusingthw=web">Website Design</a></h3>
+        <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.
+        </p>
+        <div class="trainer d-flex justify-content-between align-items-center">
+         <div class="trainer-profile d-flex align-items-center">
+          <img src="{% static 'assets copy/img/pix/pexels-ibadah-mimpi-3224344.jpg' %}" class="img-fluid" alt="">
+          <span>Antonio</span>
+         </div>
+         <div class="trainer-rank d-flex align-items-center">
+          <i class="bx bx-user"></i>&nbsp;50
+          &nbsp;&nbsp;
+          <i class="bx bx-heart"></i>&nbsp;65
+         </div>
+        </div>
+       </div>
+      </div>
+     </div> <!-- End Course Item-->
+ 
+     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+      <div class="course-item">
+       <img src="{% static 'assets copy/img/pix/pexels-josh-hild-4256852.jpg' %}" class="img-fluid" alt="...">
+       <div class="course-content">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+         <h4>Marketing</h4>
+         <p class="price">$250</p>
+        </div>
+ 
+        <h3><a href="/search/?onlyisusingthw=seo">Search Engine Optimization</a></h3>
+        <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.
+        </p>
+        <div class="trainer d-flex justify-content-between align-items-center">
+         <div class="trainer-profile d-flex align-items-center">
+          <img src="{% static 'assets copy/img/pix/pexels-pixabay-159872.jpg' %}" class="img-fluid" alt="">
+          <span>Lana</span>
+         </div>
+         <div class="trainer-rank d-flex align-items-center">
+          <i class="bx bx-user"></i>&nbsp;35
+          &nbsp;&nbsp;
+          <i class="bx bx-heart"></i>&nbsp;42
+         </div>
+        </div>
+       </div>
+      </div>
+     </div> <!-- End Course Item-->
+ 
+     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+      <div class="course-item">
+       <img src="{% static 'assets copy/img/pix/pexels-pixabay-433333.jpg' %}" class="img-fluid" alt="...">
+       <div class="course-content">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+         <h4>Python</h4>
+         <p class="price">$180</p>
+        </div>
+ 
+        <h3><a href="/search/?onlyisusingthw=python">Python Learning</a></h3>
+        <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.
+        </p>
+        <div class="trainer d-flex justify-content-between align-items-center">
+         <div class="trainer-profile d-flex align-items-center">
+          <img src="{% static 'assets copy/img/pix/pexels-raphael-brasileiro-2460817.jpg' %}" class="img-fluid" alt="">
+          <span>Brandon</span>
+         </div>
+         <div class="trainer-rank d-flex align-items-center">
+          <i class="bx bx-user"></i>&nbsp;20
+          &nbsp;&nbsp;
+          <i class="bx bx-heart"></i>&nbsp;85
+         </div>
+        </div>
+       </div>
+      </div>
+     </div> <!-- End Course Item-->
+ 
+    </div>
+ 
+   </div>
+  </section><!-- End Popular Courses Section -->
+  <section id="why-us" class="why-us">
+   <div class="section-title">
+    <h2>Why</h2>
+    <p>Why Choose Us?</p>
+   </div>
+   <div class="container" data-aos="fade-up">
+ 
+    <div class="row">
+     <div class="col-lg-4 d-flex align-items-stretch">
+      <div class="content ">
+       <h3>Why Choose Mentor?</h3>
+       <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua. Duis aute irure dolor in reprehenderit
+        Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+       </p>
+       <div class="text-center">
+        <a href="#about" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+       </div>
+      </div>
+     </div>
+     <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+      <div class="icon-boxes d-flex flex-column justify-content-center">
+       <div class="row">
+        <div class="col-xl-4 d-flex align-items-stretch">
+         <div class="icon-box mt-4 mt-xl-0">
+          <i class="bx bx-receipt"></i>
+          <h4>Corporis voluptates sit</h4>
+          <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+         </div>
+        </div>
+        <div class="col-xl-4 d-flex align-items-stretch">
+         <div class="icon-box mt-4 mt-xl-0">
+          <i class="bx bx-cube-alt"></i>
+          <h4>Ullamco laboris ladore pan</h4>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+         </div>
+        </div>
+        <div class="col-xl-4 d-flex align-items-stretch">
+         <div class="icon-box mt-4 mt-xl-0">
+          <i class="bx bx-images"></i>
+          <h4>Labore consequatur</h4>
+          <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+         </div>
+        </div>
+       </div>
+      </div><!-- End .content-->
+     </div>
+    </div>
+ 
+   </div>
+  </section><!-- End Why Us Section -->
+  <!-- ======= Pricing Section ======= -->
+  <section id="pricing" class="pricing">
+   <div class="section-title">
+    <h2>Price</h2>
+    <p>Best Deels !</p>
+   </div>
+   <div class="container" data-aos="fade-up">
+ 
+    <div class="row">
+ 
+     <div class="col-lg-3 col-md-6">
+      <div class="box">
+       <h3>Free</h3>
+       <h4><sup>$</sup>0<span> / month</span></h4>
+       <ul>
+        <li>Aida dere</li>
+        <li>Nec feugiat nisl</li>
+        <li>Nulla at volutpat dola</li>
+        <li class="na">Pharetra massa</li>
+        <li class="na">Massa ultricies mi</li>
+       </ul>
+       <div class="btn-wrap">
+        <a href="#" class="btn-buy">Buy Now</a>
+       </div>
+      </div>
+     </div>
+ 
+     <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+      <div class="box featured">
+       <h3>Business</h3>
+       <h4><sup>$</sup>19<span> / month</span></h4>
+       <ul>
+        <li>Aida dere</li>
+        <li>Nec feugiat nisl</li>
+        <li>Nulla at volutpat dola</li>
+        <li>Pharetra massa</li>
+        <li class="na">Massa ultricies mi</li>
+       </ul>
+       <div class="btn-wrap">
+        <a href="#" class="btn-buy">Buy Now</a>
+       </div>
+      </div>
+     </div>
+ 
+     <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+      <div class="box">
+       <h3>Developer</h3>
+       <h4><sup>$</sup>29<span> / month</span></h4>
+       <ul>
+        <li>Aida dere</li>
+        <li>Nec feugiat nisl</li>
+        <li>Nulla at volutpat dola</li>
+        <li>Pharetra massa</li>
+        <li>Massa ultricies mi</li>
+       </ul>
+       <div class="btn-wrap">
+        <a href="#" class="btn-buy">Buy Now</a>
+       </div>
+      </div>
+     </div>
+ 
+     <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+      <div class="box">
+       <span class="advanced">Advanced</span>
+       <h3>Ultimate</h3>
+       <h4><sup>$</sup>49<span> / month</span></h4>
+       <ul>
+        <li>Aida dere</li>
+        <li>Nec feugiat nisl</li>
+        <li>Nulla at volutpat dola</li>
+        <li>Pharetra massa</li>
+        <li>Massa ultricies mi</li>
+       </ul>
+       <div class="btn-wrap">
+        <a href="#" class="btn-buy">Buy Now</a>
+       </div>
+      </div>
+     </div>
+ 
+    </div>
+ 
+   </div>
+  </section><!-- End Pricing Section -->
+  <!-- ======= Features Section ======= -->
+  <section id="trainers" class="trainers">
+   <div class="section-title">
+    <h2>Staaf</h2>
+    <p>Our Staff</p>
+   </div>
+   
+   <div class="container" data-aos="fade-up">
+ 
+    <div class="row swiper staff-slider" data-aos="zoom-in" data-aos-delay="100" style="-webkit-box-reflect:left 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));">
+     <div class="swiper-wrapper">
+     {% for i in staff %}
+       
+     <div class="col-lg-4 col-md-6 d-flex align-items-stretch swiper-slide" style="min-width: 300px;">
+      <div class="cardo" style="border-radius: 15px;width: 100%;">
+       
+       <div class="imgBx"><a href="/staffpr/{{i.id}}"><img src="{{i.student_image.url}}" alt="" onclick="back(this);"></a></div>
+       <div class="textBx">
+        <div class="text">
+         <h2>{{i.student.first_name}}</h2>
+         <p>{{i.College_Name.name|truncatewords:2}}</p>
+        </div>
+ 
+        <ul class="icons">
+         <li style="--i:1;"><i class="bx bxl-facebook"></i></li>
+         <li style="--i:2;"><i class="bx bxl-instagram"></i></li>
+         <li style="--i:3;"><i class="bx bxl-twitter"></i></li>
+        </ul>
+       </div>
+      </div>
+     </div>
+     {% endfor %}
+     </div>
+
+ 
+ 
+    </div>
+ 
+   </div>
+  </section><!-- End Trainers Section -->
+ 
+  <!-- ======= Testimonials Section ======= -->
+  <section id="testimonials" class="testimonials">
+ 
+   <div class="container" data-aos="fade-up">
+ 
+    <div class="section-title">
+     <h2>Testimonials</h2>
+     <p>What are they saying</p>
+    </div>
+ 
+    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+     <div class="swiper-wrapper">
+ {% for i in testi %}
+   
+ 
+      <div class="swiper-slide">
+       <div class="testimonial-wrap">
+        <div class="testimonial-item">
+         <img src="{{i.student.student_image.url}}" class="testimonial-img" alt="">
+         <h3>{{i.student.student.get_full_name}}</h3>
+         <h4>{{i.passion}}</h4>
+         <p>
+          <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+          {{i.review|truncatewords:50}}.
+          <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+         </p>
+        </div>
+       </div>
+      </div><!-- End testimonial item -->
+      {% endfor %}
+ 
+      
+ 
+     </div>
+     <div class="swiper-pagination"></div>
+    </div>
+ 
+   </div>
+  </section><!-- End Testimonials Section -->
+ 
+  <div class="distortion"></div>
+
+  <script>
+   const textDisplay = document.getElementById('text')
+    const phrases = ["I have always imagined that Paradise will be a kind of a Library.", "Nothing is pleasanter than exploring a library.", "The only thing that you absolutely have to know, is the location of the library.", "When in doubt go to the library.", "Bad libraries build collections, good libraries build services, great libraries build communities.", "I have found the most valuable thing in my wallet is my library card.", "Libraries were full of ideas – perhaps the most dangerous and powerful of all weapons.", "Libraries always remind me that there are good things in this world.", "Cutting libraries during a recession is like cutting hospitals during a plague.","Whatever the cost of our libraries, the price is cheap compared to that of an ignorant nation."]
+    let i = 0
+    let j = 0
+    let currentPhrase = []
+    let isDeleting = false
+    let isEnd = false
+
+    function loop() {
+     isEnd = false
+     textDisplay.innerHTML = currentPhrase.join('')
+
+     if (i < phrases.length) {
+
+      if (!isDeleting && j <= phrases[i].length) {
+       currentPhrase.push(phrases[i][j])
+       j++
+       textDisplay.innerHTML = currentPhrase.join('')
+      }
+
+      if (isDeleting && j <= phrases[i].length) {
+       currentPhrase.pop(phrases[i][j])
+       j--
+       textDisplay.innerHTML = currentPhrase.join('')
+      }
+
+      if (j == phrases[i].length) {
+       isEnd = true
+       isDeleting = true
+      }
+
+      if (isDeleting && j === 0) {
+       currentPhrase = []
+       isDeleting = false
+       i++
+       if (i === phrases.length) {
+        i = 0
+       }
+      }
+     }
+     const spedUp = Math.random() * (80 - 50) + 50
+     const normalSpeed = Math.random() * (300 - 200) + 50
+     const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed
+     setTimeout(loop, time)
+    }
+
+    loop()   
+
+  </script>
+  
+ 
+ 
+ 
+ </main><!-- End #main -->
+  
+{% endblock main %}

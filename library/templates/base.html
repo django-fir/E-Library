@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+ <meta charset="utf-8">
+ <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="theme-color" content="#4154f1">
+
+
+
+
+ <title>E-Library</title>
+ <meta content="" name="description">
+ <meta content="" name="keywords">
+
+ <link
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+  rel="stylesheet">
+  <!-- <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet"> -->
+  <link href="{% static 'assets copy/img\open-book-pages-logo\111_Readbook.jpg' %}" rel="icon">
+  <link href="{% static 'assets copy/img\open-book-pages-logo\111_Readbook.jpg'' %}" rel="apple-touch-icon">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  
+  <!-- Vendor CSS Files -->
+  <!-- <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> -->
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <!-- <link href="{% static 'assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet"> -->
+  <!-- <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet"> -->
+  <!-- <link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet"> -->
+  
+  
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+{% if books %}
+<link rel="stylesheet" href="{% static 'card.css' %}"> 
+{% endif %}
+ <!-- Vendor CSS Files -->
+ 
+ <link href="{% static 'assets copy/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+ 
+ <link href="{% static 'assets copy/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+ 
+
+<link rel="stylesheet" href="{% static 'assets/css/auto.css' %}">
+<link href="{% static 'assets copy/css/style.css' %}" rel="stylesheet">
+
+
+ <!-- Google Fonts -->
+ <link href="https://fonts.gstatic.com" rel="preconnect">
+ <link
+  href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+  rel="stylesheet">
+ 
+ <!-- Vendor CSS Files -->
+ <!-- <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+ <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+ <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet"> -->
+
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+<!-- MDB -->
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css" rel="stylesheet" /> -->
+<link rel="stylesheet" href="{% static 'assets/mdb/mdb3.min.css' %}">
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="{% static 'assets/mdb/mdb.min.css' %}">
+
+<link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+
+<!-- Template Main CSS File -->
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'loder.css' %}">
+
+
+ <style>
+   *{
+     scroll-behavior: smooth;
+     /* cursor: none; */
+   }
+ 
+   .messages{
+     position:fixed;
+     top: 8%;
+     z-index: 3000;     
+   }
+    /* width */
+ ::-webkit-scrollbar {
+  width: 8px;
+ }
+
+ 
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+  background: #3043ec;
+  border-radius: 5px;
+ }
+
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+  background: #16B5EA;
+ }
+ .cursor{
+   top: -10px;
+   left: -10px;
+   width: 20px;
+   height:20px;
+   position: fixed;
+   border: 2px solid #ffffff;
+   z-index: 5000;
+   border-radius: 50%;
+   transform-origin: 100% 100%;
+   transform: translate(-30px,-30px);
+   mix-blend-mode: difference;
+   pointer-events: none;
+
+ }
+ .scale-curser{
+   left: 30px;
+   top:30px;
+   background: #ffffff;
+ }
+ ::selection{
+   background-color: #16B5EA;
+   color: #f6f9ff;
+ }
+ </style>
+
+
+
+ 
+</head>
+<body class="para">
+  <div class="cursor"></div>
+  
+  
+  <div id="loder">
+    <img class="books animated bounceInUp"  style="background-color: #f6f9ff;height: 50%;" src="{% static  'assets copy/img/4f8f4849d7ca6c6d81964c3c61f9d085.gif' %}" alt="">  
+    
+  
+</div>
+<script>
+  const ele12 = document.getElementById("loder")
+  window.addEventListener('load', () => {
+    ele12.style.display = "none";
+    
+  })
+</script>
+  {% if messages %}
+  {% for mes in messages %}  
+  <div {% if mes.extra_tags %}    
+   class="messages alert alert-{{mes.extra_tags}} bg-{{mes.extra_tags}} alert-dismissible fade show text-white animated zoomInLeft"{% endif %} role="alert" id="messages">
+    
+   <marquee behavior="" direction=""><i class="bi bi-check-circle me-1"></i>  {{mes}}</marquee> 
+    <button type="button" class="btn-close"  aria-label="Close" onclick="removeclass(event)"></button>
+  </div>
+  <script>
+    function removeclass(event){
+      const msg = document.getElementById("messages")
+      msg.classList.add("zoomOutRight")
+    }
+  </script>
+  {% endfor %}
+    
+  {% endif %}
+{% if fm %}
+{% block login %}
+
+{% endblock login %}
+{% elif form %}
+{% block signup %}
+  
+{% endblock signup %}
+{% elif error %}
+{% block 404 %}
+  
+{% endblock 404 %}
+{% else %}
+{% include "nav.html" %}
+{% block navbar %}  
+{% endblock navbar %} 
+{% if book %}
+{% block bookd %}
+  
+{% endblock bookd %}
+{% elif books %}
+{% block cards %}
+  
+{% endblock cards %}
+{% elif formp %}
+{% block profile %}
+  
+{% endblock profile %}
+{% elif cart %}
+{% block cart %}
+  
+{% endblock cart %}
+{% elif emb %}
+{% block embend %}
+  
+{% endblock embend %}
+{% elif contact %}
+{% block contact %}
+  
+{% endblock contact %}
+{% else %}
+{% include "main.html" %}
+{% endif %}
+
+
+
+
+
+
+<footer id="footer">
+
+ <div class="footer-top">
+  <div class="container">
+   <div class="row">
+
+    <div class="col-lg-3 col-md-6 footer-contact">
+     <h3>Mentor</h3>
+     <p>
+      Vemana Institute Of Tecknology <br>
+      Water Tank, Kormangala<br>
+      Bengaluru <br><br>
+      <strong>Phone:</strong> +91 7899067340<br>
+      <strong>Email:</strong> e-lib@gmail.com<br>
+     </p>
+    </div>
+
+    <div class="col-lg-2 col-md-6 footer-links">
+     <h4>Useful Links</h4>
+     <ul>
+      <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+      <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+      <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+      <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+      <li><i class="bx bx-chevron-right"></i> <a href="{{user.student_image.url}}" download>Privacy policy</a></li>
+     </ul>
+    </div>
+
+    <div class="col-lg-3 col-md-6 footer-links">
+     <h4>Our Services</h4>
+     <ul>
+      <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+      <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+      <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+      <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+      <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+     </ul>
+    </div>
+
+    <div class="col-lg-4 col-md-6 footer-newsletter">
+     <h4>Join Our Newsletter</h4>
+     <p>For Great and Daily News And Updates On Our Libraries Subscribe Hear for Future!</p>
+     <form action="" method="post">
+      <input type="email" name="email"><input type="submit" value="Subscribe">
+     </form>
+    </div>
+
+   </div>
+  </div>
+ </div>
+
+ <div class="container d-md-flex py-4">
+
+  <div class="me-md-auto text-center text-md-start">
+   <div class="copyright">
+    &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
+   </div>
+   <div class="credits">
+   
+    Designed by <a href="/home/#staff">Govardhan S N</a>
+   </div>
+  </div>
+  <div class="social-links text-center text-md-right pt-3 pt-md-0">
+   <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+   <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+   <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+   <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+   <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+  </div>
+ </div>
+</footer><!-- End Footer -->
+{% endif %}
+
+
+<a href="#" class="btn back-to-top d-flex align-items-center justify-content-center"><i
+  class="bi bi-arrow-up-short"></i></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+  integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    let cursor = document.querySelector('.cursor')
+    let btns = document.querySelectorAll('li,a,button,img,h2,.section-title,.purecounter')
+      window.addEventListener("mousemove", curserf)
+
+      function curserf(e) {
+        gsap.to(cursor, 0, {
+          x: e.clientX,
+          y: e.clientY,
+
+        })
+
+      };
+      btns.forEach(link => {
+          link.addEventListener("mouseover", () => {
+            cursor.classList.add('scale-curser');
+            gsap.to(cursor, 0.4, {
+              scale: 5,
+            })
+          });
+        })
+      btns.forEach(link=>{
+        link.addEventListener("mouseleave",()=>{
+          cursor.classList.remove('scale-curser');
+          gsap.to(cursor,0.4,{
+            scale:1,
+          })
+        });
+      })
+  </script>
+
+<!-- we -->
+<script src="{% static 'assets copy/vendor/purecounter/purecounter.js'%}"></script>
+
+
+<script src="{% static 'assets copy/vendor/swiper/swiper-bundle.min.js'%}"></script>
+<!-- <script src="{% static 'assets copy/vendor/php-email-form/validate.js'%}"></script> -->
+
+
+<!-- Vendor JS Files -->
+<!-- <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js'%}"></script> -->
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+<!-- MDB -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script> -->
+<script src="{% static 'assets/mdb/js/mdb1.js'%}"></script>
+<!-- <script src="{% static 'assets/vendor/chart.js/chart.min.js'%}"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="{% static 'assets/vendor/quill/quill.min.js'%}"></script> -->
+<!-- <script src="{% static 'assets/vendor/simple-datatables/simple-datatables.js'%}"></script> -->
+<!-- <script src="{% static 'assets/vendor/tinymce/tinymce.min.js'%}"></script> -->
+<!-- <script src="{% static 'assets/vendor/php-email-form/validate.js'%}"></script> -->
+<script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
+<script src="{% static 'assets/css/auto.js' %}"></script>
+<script>
+  var name;
+  new Autocomplete('#autocomplete', {
+    search:res=>{
+      const url = `/search/?address=${res.trim()}`
+      name = res.trim()
+      return new Promise(resolve=>{
+        fetch(url)
+        .then(responce=>responce.json())
+        .then(data=>{
+          resolve(data.books)
+        })
+      })
+    },
+    onSubmit:res=>{
+      if (res == undefined)
+      {
+        if (name.slice(0,3) == "add"){
+          window.open(`addbook/${name.slice(3).trim()}`)          
+        }
+        else{
+          window.open(`/search/?onlyisusingthw=${name}`)
+        }
+      }
+      
+      else
+      {
+        window.open(`/books/?searchdbook=${res.split('--')[1]}`)
+      }      
+    }
+  },
+  )
+</script>
+<!-- Template Main JS File -->
+<script src="{% static 'assets copy/js/main.js'%}"></script>
+<script src="{% static 'assets/js/main.js'%}"></script>
+
+<script>
+  const eles = document.getElementsByClassName("btn")
+  
+  for(let i=0;i<eles.length;i++)
+  {
+    
+      eles[i].classList.add("animated");
+      
+    
+  }
+ 
+  
+    
+
+</script>
+
+<!-- JQuery -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<script src="{% static 'assets/js/jquary.js'%}"></script>
+<!-- Bootstrap tooltips -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script> -->
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<script>
+  $('.btn').click(function () {
+    $(this).addClass("rubberBand");
+    $(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (event) {
+      $(this).removeClass("rubberBand")
+    });
+  });
+  
+  $('.nav-item').click(function () {
+      $(this).addClass("animated");
+      $(this).addClass("rubberBand");
+      $(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (event) {
+        $(this).removeClass("rubberBand")
+        $(this).removeClass("animated")
+
+      });
+    });
+    $('.toggle-sidebar-btn').click(function () {
+        $(this).addClass("rubberBand");
+        $('.sidebar').addClass("bounceInLeft");
+        $(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (event) {
+          $(this).removeClass("rubberBand")
+        $('.sidebar').removeClass("bounceInLeft");
+
+
+        });
+      });
+      $('.product').hover(function () {
+          $(this).addClass("pulse");
+          $(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (event) {
+            $(this).removeClass("pulse")
+
+
+
+          });
+        });
+         $('.nav-link').hover(function () {
+            $(this).addClass("pulse");
+        $(this).addClass("animated")
+
+            $(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (event) {
+              $(this).removeClass("pulse")
+        $(this).removeClass("animated")
+
+
+
+            });
+          });
+          
+      $('.close-btn').click(function () {
+          $('.popup-card').addClass("animated");
+          $('.popup-card').addClass("bounceOutRight");
+          $('.popup-card').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (event) {
+            $('.popup-card').removeClass("bounceOutRight")
+            $('.popup-card').removeClass("animated")
+
+          });
+        });
+        $('.product-card').click(function () {
+            $('.popup-card').addClass("animated");
+            $('.popup-card').addClass("bounceInUp");
+            $('.popup-card').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (event) {
+              $('.popup-card').removeClass("bounceInUp")
+              $('.popup-card').removeClass("animated")
+
+            });
+          });
+</script>
+
+</body>
+
+</html>

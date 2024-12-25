@@ -1,0 +1,15 @@
+asgiref
+backports.zoneinfo
+certifi
+charset-normalizer
+Django
+idna
+Pillow
+pytz
+requests
+sqlparse
+sqlparser
+tzdata
+urllib3
+waitress
+whitenoise
